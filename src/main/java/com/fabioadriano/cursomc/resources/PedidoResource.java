@@ -23,8 +23,6 @@ public class PedidoResource {
 	public ResponseEntity<Pedido> find(@PathVariable Integer id) throws ObjectNotFoundException {
 		Pedido obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
-
-		
 		
 	}
 }

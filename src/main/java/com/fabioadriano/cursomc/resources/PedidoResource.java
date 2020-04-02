@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fabioadriano.cursomc.domain.Pedido;
 import com.fabioadriano.cursomc.services.PedidoService;
 
-import javassist.tools.rmi.ObjectNotFoundException;
-
 @RestController
 @RequestMapping(value="/pedidos")
 public class PedidoResource {
@@ -19,10 +17,9 @@ public class PedidoResource {
 	@Autowired
 	private PedidoService service;
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.GET)
-	public ResponseEntity<Pedido> find(@PathVariable Integer id) throws ObjectNotFoundException {
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public ResponseEntity<Pedido> find(@PathVariable Integer id) {
 		Pedido obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
-		
 	}
 }

@@ -12,23 +12,28 @@ public enum TipoCliente {
 		this.cod = cod;
 		this.descricao = descricao;
 	}
+	
 	public int getCod() {
 		return cod;
 	}
-	public String getDescricao() {
+	
+	public String getDescricao () {
 		return descricao;
 	}
 	
 	public static TipoCliente toEnum(Integer cod) {
+		
 		if (cod == null) {
 			return null;
 		}
-		for  (TipoCliente x : TipoCliente.values()) {
-			if(cod.equals(x.getCod())) {
+		
+		for (TipoCliente x : TipoCliente.values()) {
+			if (cod.equals(x.getCod())) {
 				return x;
 			}
 		}
-		throw new IllegalArgumentException("Id inválido: " + cod);
+		
+		throw new IllegalArgumentException("Id invÃ¡lido: " + cod);
 	}
-
+	
 }

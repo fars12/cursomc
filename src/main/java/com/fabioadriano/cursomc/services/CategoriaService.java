@@ -14,7 +14,7 @@ import com.fabioadriano.cursomc.domain.Categoria;
 import com.fabioadriano.cursomc.dto.CategoriaDTO;
 import com.fabioadriano.cursomc.repositories.CategoriaRepository;
 import com.fabioadriano.cursomc.services.exceptions.DataIntegrityException;
-import com.fabioadriano.cursomc.services.exceptions.ObjectsNotFoundException;
+import com.fabioadriano.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -24,7 +24,7 @@ public class CategoriaService {
 
 	public Categoria find(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
-		return obj.orElseThrow(() -> new ObjectsNotFoundException(
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
 
